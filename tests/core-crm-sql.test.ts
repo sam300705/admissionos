@@ -21,7 +21,7 @@ describe("Core CRM migration security contract", () => {
     expect(sql).toMatch(/foreign key\s*\(course_id,\s*institute_id\)/i);
     expect(sql).toMatch(/foreign key\s*\(enquiry_id,\s*institute_id\)/i);
     expect(sql).toMatch(/assigned_to uuid/i);
-    expect(sql).toMatch(/user_id, institute_id/i);
+    expect(sql).toMatch(/institute_id,\\s*assigned_to/i);
   });
 
   it("constrains statuses and creates operational indexes", () => {
