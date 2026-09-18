@@ -21,14 +21,14 @@ describe("Core CRM migration security contract", () => {
     expect(sql).toMatch(/foreign key\s*\(course_id,\s*institute_id\)/i);
     expect(sql).toMatch(/foreign key\s*\(enquiry_id,\s*institute_id\)/i);
     expect(sql).toMatch(/assigned_to uuid/i);
-    expect(sql).toMatch(/institute_id,\\s*assigned_to/i);
+    expect(sql).toMatch(/institute_id,\s*assigned_to/i);
   });
 
   it("constrains statuses and creates operational indexes", () => {
     const sql = readFileSync(migrationPath, "utf8");
     expect(sql).toMatch(/new_enquiry/i);
     expect(sql).toMatch(/demo_scheduled/i);
-    expect(sql).toMatch(/scheduled[\\s\\S]*completed[\\s\\S]*cancelled/i);
+    expect(sql).toMatch(/scheduled[\s\S]*completed[\s\S]*cancelled/i);
     expect(sql).toMatch(/enquiries_institute_status_idx/i);
     expect(sql).toMatch(/follow_ups_institute_due_idx/i);
   });
