@@ -28,10 +28,10 @@ describe("Supabase SSR client contract", () => {
     expect(server).toContain("setAll");
   });
 
-  it("refreshes auth through middleware without implementing RBAC there", () => {
+  it("refreshes verified auth claims through middleware without implementing RBAC there", () => {
     const helper = readFileSync(paths.middlewareHelper, "utf8");
     const root = readFileSync(paths.middleware, "utf8");
-    expect(helper).toContain("getUser");
+    expect(helper).toContain("getClaims");
     expect(helper).toContain("NextResponse");
     expect(root).toContain("updateSession");
     expect(root).not.toMatch(/hasPermission|requirePermission/);
