@@ -1,8 +1,10 @@
-name: Foundation CI
+name: AdmissionOS CI
 
 on:
   push:
-    branches: [phase-1-foundation]
+    branches:
+      - main
+      - "phase-*"
   pull_request:
 
 permissions:
